@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:job_search_ui/components/jobstatus.dart';
 import 'package:job_search_ui/config/size.dart';
+import 'package:job_search_ui/screens/job_detail_page.dart';
 import 'package:job_search_ui/styles/style.dart';
 
+// ignore: must_be_immutable
 class JobCard extends StatelessWidget {
+  // ignore: use_super_parameters
   JobCard({
     Key? key, 
     required this.position,
@@ -27,7 +30,12 @@ class JobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () => {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const JobDetailPage()),
+        )
+      },
       child: Container(
         height: 113,
         decoration: BoxDecoration(
